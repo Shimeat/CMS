@@ -13,4 +13,4 @@ def index():
     return "<h1>Ебать у вас тут CMS</h1>"
 
 if(__name__ == "__main__"):
-    app.run(debug=True)
+    app.run(debug=True) 
