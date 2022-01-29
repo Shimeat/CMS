@@ -1,0 +1,63 @@
+.auth {
+    background: #ffffff;
+    box-shadow: 0px 0px 20px 5px rgb(210,210,210);
+    border-radius: 15px;
+    margin-top: 160px;
+    height: 396px;
+    width: 322px;
+    display: inherit;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#header {
+    text-align: center;
+    margin-top: 0px;
+    padding-top: 18px;
+}
+
+.login {
+    margin-top: 72px;
+    color: rgb(238,238,238);
+    width: 133.4219px;
+    border-radius: 5px;
+    height: 43px;
+    margin-left: auto;
+    margin-right: auto;
+    display: inherit;
+    border-width: 0px;
+    background: rgb(0, 143, 255);
+    padding-top: 7px;
+    font-size: 19px;
+}
+
+.parform {
+    position: absolute;
+    margin-left: 45px;
+    color: rgb(145,145,145);
+}
+
+.selplo {
+    margin-top: -52px;
+    margin-bottom: 42px;
+    width: 235px;
+    height: 35px;
+    margin-right: auto;
+    margin-left: auto;
+    border-style: solid;
+    border-color: rgb(213,213,213);
+    border-radius: 5px;
+    background: rgb(247,247,247);
+    padding-top: 4px;
+}
+
+.loginput {
+    border-radius: 5px;
+    border: 1px solid rgb(213,213,213);
+    background: rgb(247,247,247);
+    height: 35px;
+    width: 235px;
+    margin-left: auto;
+    margin-right: auto;
+    display: inherit;
+}
