@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Авторизация</title>
-    <link rel="stylesheet" href="{{ url_for('route.static', filename='bootstrap/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('route.static', filename='bootstrap/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('route.static', filename='fonts/simple-line-icons.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('route.static', filename='css/Footer-Basic.css') }}">
-    <link rel="stylesheet" href="{{ url_for('route.static', filename='css/Footer-Clean.css') }}">
-    <link rel="stylesheet" href="{{ url_for('route.static', filename='css/Navigation-Clean.css') }}">
-    <link rel="stylesheet" href="{{ url_for('route.static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/simple-line-icons.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Footer-Basic.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Footer-Clean.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Navigation-Clean.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 
 <body>
@@ -22,11 +22,15 @@
                 <p class="parform" style="margin-top: -23px;">Выбор площадки</p>
                 <i class="icon-arrow-down" style="position: absolute;margin-top: 11px;margin-left: 248px;font-size: 13px;"></i>
                 <select class="form-select selplo">
-                    <optgroup label="GreenTech">
-                        <option value="12">Фракция 1</option>
-                        <option value="13">Фракция 2</option>
-                        <option value="14">Фракиця 3</option>
-                    </optgroup>
+                    {% for group in groups_platform %}
+                        <optgroup label="{{ group.name }}">
+                            {% for platform in platforms %}
+                                {% if platform.id_group == group.id %}
+                                    <option value="{{ platform.id }}">{{ platform.name }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </optgroup>
+                    {% endfor %}
                 </select>
                 <input class="form-control loginput" type="text" style="margin-top: 15px;;">
                 <input class="form-control loginput" type="password" style="margin-top: 31px;">
@@ -41,8 +45,8 @@
         <p style="text-align: center;color: rgb(170, 170, 170);">Для получения доступа обращайтесь в группу ВКонтакте.</p>
         <p class="copyright">Lead Assistant Team © 2022</p>
     </footer>
-    <script src="{{ url_for('route.static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ url_for('route.static', filename='bootstrap/js/kitfa.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap/js/kitfa.js') }}"></script>
 </body>
 
 </html>

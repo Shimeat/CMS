@@ -3,8 +3,8 @@
 # Не редактировать FrontEnd-ерам, мало ли поломается все)!!
 
 from flask import Flask, render_template
-from route import route
 from flask_sqlalchemy import SQLAlchemy
+from models import *
 import os
 
 
@@ -17,7 +17,9 @@ db = SQLAlchemy(app)
 
 
 # Modules
-app.register_blueprint(route, url_prefix="")
+@app.route('/')
+def index():
+    return render_template('index.html', groups_platform=GroupsPlatforms.query.all(), platforms=Platforms.query.all())
 
 
 if(__name__ == "__main__"):
