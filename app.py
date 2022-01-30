@@ -22,7 +22,7 @@ db = SQLAlchemy(app)
 def index():
         return render_template('index.html', groups_platform=GroupsPlatforms.query.all(), platforms=Platforms.query.all())
 
-@app.route('/s/<sel>')
+@app.route('/s/<int:sel>')
 def index_select(sel=None):
     if (Num(sel) and Platforms.query.get(sel)):
         return render_template('index.html', groups_platform=GroupsPlatforms.query.all(), platforms=Platforms.query.all(), sel=sel)
