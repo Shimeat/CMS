@@ -2,7 +2,8 @@
 # <)
 # Не редактировать FrontEnd-ерам, мало ли поломается все)!!
 
-from flask import Flask, render_template
+from ast import Num
+from flask import Flask, render_template, abort
 from flask_sqlalchemy import SQLAlchemy
 from models import *
 import os
@@ -19,7 +20,14 @@ db = SQLAlchemy(app)
 # Modules
 @app.route('/')
 def index():
-    return render_template('index.html', groups_platform=GroupsPlatforms.query.all(), platforms=Platforms.query.all())
+        return render_template('index.html', groups_platform=GroupsPlatforms.query.all(), platforms=Platforms.query.all())
+
+@app.route('/s/<sel>')
+def index_select(sel=None):
+    if (Num(sel) and Platforms.query.get(sel)):
+        return render_template('index.html', groups_platform=GroupsPlatforms.query.all(), platforms=Platforms.query.all(), sel=sel)
+    abort(404)
+
 
 
 if(__name__ == "__main__"):
