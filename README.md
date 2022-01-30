@@ -11,3 +11,4 @@ Python==3.10.1
 pip==21.3.1
 Flask==2.0.2
 flask_sqlalchemy==2.5.1
+flask-login==0.5.0
