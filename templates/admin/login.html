@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="{{ url_for('static', filename='admin/tailwind.config.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap/js/kitfa.js') }}"></script>
+    <title>Вход в админ-панель</title>
+</head>
+    <body class="bg-stone-9300">
+        <!-- <div class="justify-center flex place-items-center">
+          <div class="bg-stone-100 drop-shadow-md text-center w-1/4">
+            123
+          </div>
+        </div> -->
+        <div class="grid place-items-center text-center h-screen">
+          {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <span
+            class="bg-danger w-max place-item-center rounded-lg border border-l-0 border-r-0 border-b-0 border-t-4 border-t-rose_danger"
+            ><div class="py-4 text-white">
+              <div class="font-semibold">Ошибка!</div>
+              <div class="">{{ message }}</div>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            <div class="bg-stone-100 drop-shadow-lg w-80 rounded-lg">
+              <p class="font-semibold text-xl text-stone-700 pt-5">Вход</p>
+              <div class="text-blue-400">в админ-панель</div>
+              <hr class="my-4" />
+              <form action="#" method="POST">
+                <input
+                  type="text"
+                  placeholder="Логин"
+                  name="login"
+                  class="p-1 text-center md:w-max md:px-14 border border-stone-200 rounded"
+                />
+                <input
+                  type="password"
+                  placeholder="Пароль"
+                  name="password"
+                  class="p-1 my-3 text-center md:w-max md:px-14 border border-stone-200 rounded"
+                />
+                <button
+                  type="submit"
+                  name="enter_login"
+                  class="px-1 py-2 text-center w-full h-full border text-stone-700 border-stone-200 hover:bg-stone-200 hover:cursor-pointer hover:border-stone-300 rounded-tl-none rounded-tr-none rounded-lg"
+                >
+                  Войти
+                </button>
+              </form>
+            </div>
+          </span>
+        </div>
+</body>
+</html>
