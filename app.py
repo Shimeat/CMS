@@ -90,9 +90,9 @@ def admin_index():
     if request.method == 'GET':
         return render_template('admin/login.html')
     else:
-        login_admin = request.form['login']
-        password_admin = request.form['password']
-        if (login_admin and password_admin):
+        if (request.form['login'] != None and request.form['password'] != None):
+            login_admin = request.form['login']
+            password_admin = request.form['password']
             query = Admins.query.filter_by(login=login_admin, password=password_admin).first()
             if (query != None):
                 session['admin_auth'] = True
