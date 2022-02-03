@@ -13,7 +13,7 @@ import hashlib
 from flask_marshmallow import Marshmallow
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+os.path.join(os.path.dirname(os.path.abspath(__name__)), 'la.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///la.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = b'lateam_DG'
 
